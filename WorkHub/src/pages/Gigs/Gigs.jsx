@@ -3,7 +3,7 @@ import "./gigs.css"
 const Gigs = () => {
   return (
     <div className='gigs'>
-      
+      gigs
     </div>
   )
 }
