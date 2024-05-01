@@ -1,64 +1,83 @@
-import React, { useEffect, useState } from 'react'
-import "./navbar.scss"
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-const Navbar = () => {
+import "./navbar.scss";
 
-    const [active,setActive] = useState(false);
-    const [open,setOpen] = useState(false);
+function Navbar() {
+  const [active, setActive] = useState(false);
+  const [open, setOpen] = useState(false);
 
-    const {pathname} = useLocation()
+  const { pathname } = useLocation();
 
-    const isActive = ()=>{
-        window.scrollY > 0 ? setActive(true): setActive(false)
-    }
+  const isActive = () => {
+    window.scrollY > 0 ? setActive(true) : setActive(false);
+  };
 
-    useEffect(()=>{
-        window.addEventListener("scroll", isActive);
-        return ()=>{
-            window.removeEventListener("scroll", isActive);
-        }
-    },[])
-    const currentUser = { id: 1, username: "Anna", isSeller: true, };
+  useEffect(() => {
+    window.addEventListener("scroll", isActive);
+    return () => {
+      window.removeEventListener("scroll", isActive);
+    };
+  }, []);
+  const currentUser = {
+    id: 1,
+    username: "Anna",
+    isSeller: true,
+  };
+
   return (
-    <div className={active || pathname!=="/"? "navbar active" : " navbar"}>
+    <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <div className="container">
         <div className="logo">
-            <Link to="/" className='link'>
-            <span className='text'>WorkHub</span>
-            </Link>
+          <Link className="link" to="/">
+            <span className="text">liverr</span>
+          </Link>
+          <span className="dot">.</span>
         </div>
         <div className="links">
-            <Link to="/">WorkHub Business</Link>
-            <Link to="/">Explore</Link>
-            <Link to="/">English</Link>
-            <Link to="/">Sign_in</Link>
-            {!currentUser?.isSeller && <span>Become a Seller</span>}
-            {!currentUser && <button>Join</button>}
-            {currentUser &&
-            (<div className="user" onClick={()=> setOpen(!open)}>
-                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.deviantart.com%2Fayayyuki%2Fart%2FToon-Link-Profile-Pic-commission-781975060&psig=AOvVaw3zQxS4uVfuOZ05TpcTZR9h&ust=1713726324010000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKCcspi-0YUDFQAAAAAdAAAAABAE" alt="" />
-                <span>{currentUser?.username}</span>
-                {open &&
+          <span>Explore</span>
+          <span>English</span>
+          {!currentUser?.isSeller && <span>Become a Seller</span>}
+          {currentUser ? (
+            <div className="user" onClick={() => setOpen(!open)}>
+              <img src="/img/userprof.avif" alt="" />
+              <span>{currentUser?.username}</span>
+              {open && (
                 <div className="options">
-                {
-                    currentUser?.isSeller &&(
-                        <>
-                        <Link className='link' to="/mygigs">Gigs</Link>
-                        <Link className='link' to="/add">Add New Gig</Link>
-                        </>
-                    )}
-                <Link className='link' to="/orders">Orders</Link>
-                <Link className='link' to="/messages">Messages</Link>
-                <Link className='link' to="/">Logout</Link>
-                </div>}
+                  {currentUser.isSeller && (
+                    <>
+                      <Link className="link" to="/mygigs">
+                        Gigs
+                      </Link>
+                      <Link className="link" to="/add">
+                        Add New Gig
+                      </Link>
+                    </>
+                  )}
+                  <Link className="link" to="/orders">
+                    Orders
+                  </Link>
+                  <Link className="link" to="/messages">
+                    Messages
+                  </Link>
+                  <Link className="link" to="/">
+                    Logout
+                  </Link>
+                </div>
+              )}
             </div>
-
-            )}
+          ) : (
+            <>
+              <span>Sign in</span>
+              <Link className="link" to="/register">
+                <button>Join</button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
-      {(active || pathname!=="/") &&(
-      <>
-      <hr />
+      {(active || pathname !== "/") && (
+        <>
+          <hr />
           <div className="menu">
             <Link className="link menuLink" to="/">
               Graphics & Design
@@ -89,11 +108,10 @@ const Navbar = () => {
             </Link>
           </div>
           <hr />
-      </>
+        </>
       )}
     </div>
-
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
