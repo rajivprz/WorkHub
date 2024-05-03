@@ -20,7 +20,7 @@ function Navbar() {
   }, []);
   const currentUser = {
     id: 1,
-    username: "Anna",
+    username: "Rajiv",
     isSeller: true,
   };
 
@@ -28,10 +28,11 @@ function Navbar() {
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <div className="container">
         <div className="logo">
+          <span className="dot">|</span>
           <Link className="link" to="/">
-            <span className="text">liverr</span>
+            <span className="text">WorkHub</span>
           </Link>
-          <span className="dot">.</span>
+          <span className="dot">|</span>
         </div>
         <div className="links">
           <span>Explore</span>
