@@ -7,7 +7,7 @@ const Message = () => {
     <div className="message">
       <div className="container">
         <span className="breadcrumbs">
-          <Link to="/messages">Messages</Link>  Rajiv Parajuli
+          <Link to="/messages">Messages</Link> Charley Sharp
         </span>
         <div className="messages">
           <div className="item">

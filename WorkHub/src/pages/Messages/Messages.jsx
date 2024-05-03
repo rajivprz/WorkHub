@@ -5,7 +5,7 @@ import "./messages.scss";
 const Messages = () => {
   const currentUser = {
     id: 1,
-    username: "Anna",
+    username: "Rajiv",
     isSeller: true,
   };
 

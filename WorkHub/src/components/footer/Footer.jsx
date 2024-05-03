@@ -1,9 +1,10 @@
-import React from 'react'
-import "./footer.scss"
+import React from "react";
+import "./footer.scss";
 
 const Footer = () => {
   return (
-    <div className='footer'>
+    <div className="footer">
+      <hr />
       <div className="container">
         <div className="top">
           <div className="item">
@@ -84,7 +85,7 @@ const Footer = () => {
             <span>© WorkHub Ltd. 2024</span>
           </div>
           <div className="right">
-          <div className="social">
+            <div className="social">
               <img src="/img/twitter.png" alt="" />
               <img src="/img/facebook.png" alt="" />
               <img src="/img/linkedin.png" alt="" />
@@ -104,7 +105,7 @@ const Footer = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
