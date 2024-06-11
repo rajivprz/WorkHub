@@ -101,3 +101,22 @@
         }
     }
 }
+@media only screen and (max-width: 1440px) {
+    .gigs .container .menu .right {
+      position: static;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      margin-left: 50px;
+    }
+  
+    .gigs .container .menu .right img {
+      order: 1;
+    }
+  
+    .gigs .container .menu .rightMenu {
+      position: static;
+      margin-top: 10px;
+      width: 100%;
+    }
+  }
